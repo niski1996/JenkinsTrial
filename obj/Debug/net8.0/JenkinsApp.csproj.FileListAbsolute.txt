@@ -1,0 +1,14 @@
+/home/kali/Desktop/Jenkins/JenkinsApp/bin/Debug/net8.0/JenkinsApp
+/home/kali/Desktop/Jenkins/JenkinsApp/bin/Debug/net8.0/JenkinsApp.deps.json
+/home/kali/Desktop/Jenkins/JenkinsApp/bin/Debug/net8.0/JenkinsApp.runtimeconfig.json
+/home/kali/Desktop/Jenkins/JenkinsApp/bin/Debug/net8.0/JenkinsApp.dll
+/home/kali/Desktop/Jenkins/JenkinsApp/bin/Debug/net8.0/JenkinsApp.pdb
+/home/kali/Desktop/Jenkins/JenkinsApp/obj/Debug/net8.0/JenkinsApp.GeneratedMSBuildEditorConfig.editorconfig
+/home/kali/Desktop/Jenkins/JenkinsApp/obj/Debug/net8.0/JenkinsApp.AssemblyInfoInputs.cache
+/home/kali/Desktop/Jenkins/JenkinsApp/obj/Debug/net8.0/JenkinsApp.AssemblyInfo.cs
+/home/kali/Desktop/Jenkins/JenkinsApp/obj/Debug/net8.0/JenkinsApp.csproj.CoreCompileInputs.cache
+/home/kali/Desktop/Jenkins/JenkinsApp/obj/Debug/net8.0/JenkinsApp.dll
+/home/kali/Desktop/Jenkins/JenkinsApp/obj/Debug/net8.0/refint/JenkinsApp.dll
+/home/kali/Desktop/Jenkins/JenkinsApp/obj/Debug/net8.0/JenkinsApp.pdb
+/home/kali/Desktop/Jenkins/JenkinsApp/obj/Debug/net8.0/JenkinsApp.genruntimeconfig.cache
+/home/kali/Desktop/Jenkins/JenkinsApp/obj/Debug/net8.0/ref/JenkinsApp.dll
