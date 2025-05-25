@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8000:8000"
+    environment:
+      - tmp_pyth_DB__uri=postgresql://postgres:postgres@db:5432/tmp_pyth
+      - tmp_pyth_DB__connect_args={}
+    volumes:
+      - .:/home/app/web
+    depends_on:
+      - db
+  db:
+    build: postgres
+    image: tmp_pyth_postgres-13-alpine-multi-user
+    volumes:
+      - $HOME/.postgres/tmp_pyth_db/data/postgresql:/var/lib/postgresql/data
+    ports:
+      - 5435:5432
+    environment:
+      - POSTGRES_DBS=tmp_pyth, tmp_pyth_test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

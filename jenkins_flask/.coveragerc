@@ -1,0 +1,8 @@
+[run]
+source = tmp_pyth
+
+[report]
+omit =
+    */python?.?/*
+    */site-packages/nose/*
+    tmp_pyth/__main__.py
