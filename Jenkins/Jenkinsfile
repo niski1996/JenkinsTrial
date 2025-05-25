@@ -2,19 +2,8 @@ pipeline {
     agent any
 
     stages {
-        stage('w/o docker') {
-            steps {
-                sh '''
-                echo "dupa"
-                                touch container.txt
-                ls -la
-
-                '''
-                
-            }
-        }
         
-        stage('w/ docker') {
+        stage('Build') {
             agent {
                 docker {
                     image 'python:3.10.17'
@@ -22,12 +11,18 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo "dupa z dockerem"'
                 sh '''
-                touch container.txt
                 ls -la
+                python --version
+                pip install -r requirements.txt
+                python -m unittest discover -s tests
+                python -m coverage run -m unittest discover -s tests
+                python -m coverage report
+                python -m coverage html
+                python -m coverage xml
+                
                 '''
-                sh 'python --version'
+
             }
         }
     }
