@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-        
         stage('Build') {
             agent {
                 docker {
@@ -12,17 +11,24 @@ pipeline {
             }
             steps {
                 sh '''
+                # Wyświetlenie plików i wersji Pythona
                 ls -la
                 python --version
-                pip install --user -r requirements.txt
+
+                # Utworzenie i aktywacja wirtualnego środowiska
+                python -m venv venv
+                . venv/bin/activate
+
+                # Instalacja zależności w venv
+                pip install -r requirements.txt
+
+                # Uruchomienie testów i generowanie raportów coverage
                 python -m unittest discover -s tests
                 python -m coverage run -m unittest discover -s tests
                 python -m coverage report
                 python -m coverage html
                 python -m coverage xml
-                
                 '''
-
             }
         }
     }
