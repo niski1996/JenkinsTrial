@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Create venv') {
             agent {
                 docker {
                     image 'python:3.10.17'
@@ -21,8 +21,41 @@ pipeline {
 
                 # Instalacja zależności w venv
                 pip install -r requirements.txt
+                '''
+            }
+        }
+        stage('Build') {
+            agent {
+                docker {
+                    image 'python:3.10.17'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
 
                 # Uruchomienie testów i generowanie raportów coverage
+                python -m unittest discover -s tests
+                python -m coverage run -m unittest discover -s tests
+                python -m coverage report
+                python -m coverage html
+                python -m coverage xml
+                '''
+            }
+        }
+        stage("Test"){
+            agent {
+                docker {
+                    image 'python:3.10.17'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                # Aktywacja wirtualnego środowiska
+                . venv/bin/activate
+
+                # Uruchomienie testów
                 python -m unittest discover -s tests
                 python -m coverage run -m unittest discover -s tests
                 python -m coverage report
