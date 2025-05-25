@@ -15,12 +15,12 @@ pipeline {
                 ls -la
                 python --version
                 pip install -r requirements.txt
-                python -m unittest discover -s test
-                python -m coverage run -m unittest discover -s test
+                python -m unittest discover -s tests
+                python -m coverage run -m unittest discover -s tests
                 python -m coverage report
                 python -m coverage html
                 python -m coverage xml
-
+                
                 '''
 
             }
